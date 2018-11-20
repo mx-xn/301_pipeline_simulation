@@ -1,0 +1,97 @@
+//no stalls / jumps
+input0.in
+add $1, $5, $7
+slt $1, $6, $8
+lb $2, 20($8)
+slti $4, $9, -20
+xor $2, $7, $8
+
+//no jumps, with different distances
+distance 1, RAW btw 0 and 1 ($2)
+input1.in
+add $2, $3, $4
+sll $1, $2, 8
+xor $3, $8, $7
+mult $5, $6
+slti $3, $8, $7
+
+distance 2, RAW btw 0 and 2 ($2)
+input2.in
+add $2, $3, $4
+xor $3, $8, $7
+sll $1, $2, $8
+mult $5, $6
+slti $3, $8, $7
+
+- jump afterwards(one more stall) 
+input3.in
+add $2, $3, $4
+xor $3, $8, $7
+sll $1, $2, $8
+j label
+slti $3, $8, $7
+
+- jump in between( = stall with only distance 2)
+input4.in
+add $2, $3, $4
+j label
+sll $1, $2, $8
+xor $3, $8, $7
+slti $3, $8, $7
+
+distance 3, RAW btw 0 and 3 ($2)
+input5.in
+add $2, $3, $4
+xor $3, $8, $7
+mult $5, $6
+sll $1, $2, $8
+slti $3, $8, $7
+
+//with jump no stalls (needed???)
+input6.in
+add $3, $1, $5
+addi $3, $2, $6
+j label
+lb $3, -20($6)
+mflo $9
+
+//Forwarding:
+//non_MMR
+input1.in 
+add $2, $3, $4
+sll $1, $2, 8
+xor $3, $8, $7
+mult $5, $6
+slti $3, $8, $7
+
+//MMR
+input7.in(RAW btw 0, 1, $2)
+add $2, $3, $4
+lb $3, 15($2)
+xor $3, $8, $7
+mult $5, $6
+slti $3, $8, $7
+
+//MMR distance > 1
+input8.in(RAW btw 0, 1, $2)
+add $2, $3, $4
+xor $3, $8, $7
+lb $3, 15($2)
+mult $5, $6
+slti $3, $8, $7
+
+//MMR distance > 1 + jump (1 additional stall)
+input9.in
+add $2, $3, $4
+xor $3, $8, $7
+lb $3, 15($2)
+j label
+slti $3, $8, $7
+
+//MMR distance > 1 + jump in between(stall = input8)
+input10.in
+add $2, $3, $4
+j label
+lb $3, 15($2)
+xor $3, $8, $7
+slti $3, $8, $7

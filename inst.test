@@ -1,0 +1,53 @@
+IDEAL: 
+RAW Dependence between instruction 1 add $3, $4, $8 and 3 mult $2, $3
+RAW Dependence between instruction 4 mflo $1 and 5 xor $3, $1, $4
+RAW Dependence between instruction 6 sll $3, $2, 10 and 7 slt $1, $2, $3
+RAW Dependence between instruction 8 lb $1, 100($2) and 9 slti $2, $1, 100
+Instr# 	 CompletionTime 	 Mnemonic 
+0	5			|j label
+1	6			|add $3, $4, $8
+2	7			|addi $1, $2, 100
+3	8			|mult $2, $3
+4	9			|mflo $1
+5	10			|xor $3, $1, $4
+6	11			|sll $3, $2, 10
+7	12			|slt $1, $2, $3
+8	13			|lb $1, 100($2)
+9	14			|slti $2, $1, 100
+Total time is 14
+
+STALL: 
+RAW Dependence between instruction 1 add $3, $4, $8 and 3 mult $2, $3
+RAW Dependence between instruction 4 mflo $1 and 5 xor $3, $1, $4
+RAW Dependence between instruction 6 sll $3, $2, 10 and 7 slt $1, $2, $3
+RAW Dependence between instruction 8 lb $1, 100($2) and 9 slti $2, $1, 100
+Instr# 	 CompletionTime 	 Mnemonic 
+0	5			|j label
+1	7			|add $3, $4, $8
+2	8			|addi $1, $2, 100
+3	10			|mult $2, $3
+4	11			|mflo $1
+5	14			|xor $3, $1, $4
+6	15			|sll $3, $2, 10
+7	18			|slt $1, $2, $3
+8	19			|lb $1, 100($2)
+9	22			|slti $2, $1, 100
+Total time is 22
+
+FORWARDING: 
+RAW Dependence between instruction 1 add $3, $4, $8 and 3 mult $2, $3
+RAW Dependence between instruction 4 mflo $1 and 5 xor $3, $1, $4
+RAW Dependence between instruction 6 sll $3, $2, 10 and 7 slt $1, $2, $3
+RAW Dependence between instruction 8 lb $1, 100($2) and 9 slti $2, $1, 100
+Instr# 	 CompletionTime 	 Mnemonic 
+0	5			|j label
+1	7			|add $3, $4, $8
+2	8			|addi $1, $2, 100
+3	9			|mult $2, $3
+4	10			|mflo $1
+5	11			|xor $3, $1, $4
+6	12			|sll $3, $2, 10
+7	13			|slt $1, $2, $3
+8	14			|lb $1, 100($2)
+9	16			|slti $2, $1, 100
+Total time is 16
