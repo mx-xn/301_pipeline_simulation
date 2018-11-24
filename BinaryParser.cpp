@@ -40,6 +40,8 @@ BinaryParser::BinaryParser(string filename) {
       myInstructions.push_back(i);
     }
   }
+  in.close();
+
   myIndex = 0;
   return;
 }
@@ -323,7 +325,7 @@ string BinaryParser::convert2RTypeASM(Opcode op, Instruction &i) {
     operands[imm_p] = ss.str();
   }
   
-  strASM += (name + "\t");
+  strASM += (name + " ");
 
   for (unsigned int j = 0; j < operands.size() - 1; j++) 
     strASM += (operands[j] + ", ");
@@ -360,7 +362,7 @@ string BinaryParser::convert2ITypeASM(Opcode op, Instruction &i) {
     operands[imm_p] = ss.str();
   }
   
-  strASM += (name + "\t");
+  strASM += (name + " ");
 
   if (myOpTable.isIMMMemory(op)) {
     // if expects memory address
@@ -380,7 +382,7 @@ string BinaryParser::convert2ITypeASM(Opcode op, Instruction &i) {
 // returns the string representation of the J type ASM instruction
 string BinaryParser::convert2JTypeASM(Opcode op, Instruction &i) {
   string strASM = "";
-  
+
   string name = myOpTable.getInstName(op);
 
   string immStr = "";
@@ -392,7 +394,7 @@ string BinaryParser::convert2JTypeASM(Opcode op, Instruction &i) {
     immStr = ss.str();
   }
   
-  strASM += (name + "\t" + immStr);
+  strASM += (name + " " + immStr);
 
   return strASM;
 }
