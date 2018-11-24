@@ -23,12 +23,12 @@ bool StallPipeline::canMoveIntoStage(int st) {
   // from its previous stage, unless st is the first stage and
   // the destination result of a jump instruction
   // has not been produced yet
-  if (st != MYSTAGEOPERANDNEEDED + 1) { 
+  if (st != MY_STAGE_OPERAND_NEEDED + 1) { 
     if (st == 0) {
       // if in the first stage, check whether there will be any stalls
       // caused by a jump instruction
       for (int stAffectedByJump = st + 1; 
-        stAffectedByJump <= MYSTAGEJUMPDESTPRODUCED; stAffectedByJump++) {
+        stAffectedByJump <= MY_STAGE_JUMP_DEST_PRODUCED; stAffectedByJump++) {
         if (myStageEntry[stAffectedByJump] != myStageEmpty) {
           // if myStageEntry[stAffectedByJump] is not empty,
           // get that instruction
@@ -51,7 +51,7 @@ bool StallPipeline::canMoveIntoStage(int st) {
   // by checking whether there are any RAW dependences between the inst in the 
   // previous stage and the inst in the stage between after the current stage and
   // and stage where operand is produced if both stages are not empty
-  for (int influenceSt = st + 1; influenceSt <= MYSTAGEOPERANDPRODUCED; influenceSt++) {
+  for (int influenceSt = st + 1; influenceSt <= MY_STAGE_OPERAND_PRODUCED; influenceSt++) {
     if (myStageEntry[influenceSt] != myStageEmpty && myStageEntry[st - 1] != myStageEmpty) {
       if (myDepChecker.isRAW(myStageEntry[influenceSt], myStageEntry[st - 1])) {
         // if there is an RAW dependency, there is a stall such that the instruction

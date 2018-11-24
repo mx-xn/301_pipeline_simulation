@@ -24,15 +24,15 @@ class StallPipeline : public Pipeline {
     bool canMoveIntoStage(int st);
     
     // stage where operand value is produced in stall pipeline
-    const Stage MYSTAGEOPERANDPRODUCED = WRITEBACK;
+    const Stage MY_STAGE_OPERAND_PRODUCED = WRITEBACK;
     
     // stage where operand value is needed in stall pipeline
-    const Stage MYSTAGEOPERANDNEEDED = DECODE;   
+    const Stage MY_STAGE_OPERAND_NEEDED = DECODE;   
 
     // in this stage, the destination of jump is produced, 
     // is important because instructions cannot be fetched until 
     // the result from this stage is produced
-    const Stage MYSTAGEJUMPDESTPRODUCED = DECODE;  
+    const Stage MY_STAGE_JUMP_DEST_PRODUCED = DECODE;  
 };
 
 #endif

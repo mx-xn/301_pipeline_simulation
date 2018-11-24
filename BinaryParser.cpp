@@ -85,7 +85,6 @@ bool BinaryParser::decode2Inst(Instruction &i, string binaryLine) {
  
   //if opcode is UNDEFINED
   if (opcode == UNDEFINED) {
-    cout << "undefined" << endl;
     return false;
   }
 
@@ -180,7 +179,7 @@ bool BinaryParser::decode2InstI(string binary, Opcode op, Instruction &i) {
   string immStr = binary.substr(pos, IMMILEN);
   if (myOpTable.isIMMLabel(op)) {
     //if imm is a label
-    immStr += "00";    //*4
+    immStr += MULT_4;    //*4
   }
   signExtendImm(immStr);
   imm = cvtIMMBinary2Decimal(immStr);
@@ -226,8 +225,8 @@ bool BinaryParser::decode2InstJ(string binary, Opcode op, Instruction &i) {
   rs = rt = rd = NUMREGISTERS;
 
   string immStr = binary.substr(pos, IMMJLEN);
-  immStr += "00";             // *4
-  immStr = "0000" + immStr;   // add 4 '0's to the front(the most significant 4 bits of PC)
+  immStr += MULT_4;             // *4
+  immStr = FOREMOST_4_BITS_PC + immStr;   // add 4 '0's to the front(the most significant 4 bits of PC)
   imm = cvtIMMBinary2Decimal(immStr); 
 
   if (imm_p == -1) {

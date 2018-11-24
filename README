@@ -1,3 +1,73 @@
+Name: Maxine Xin
+
+for testing, for each instruction i, we want to make sure if there is another instruction j that
+reads from the register i writes to, there will be stalls. Also, the stall time unit caused will
+vary depending on the distance of i and j, and if the distance between i and j gets large enough,
+no stall will be caused; for the instruction jump, we want to make sure there is a control hazard
+so one-unit stall will be caused
+
+for each instruction i, there is a test input file constructed as the following:
+inst #0: instruction i
+inst #1: instruction j that has RAW with i
+inst #2 - #5: dummy instructions filled in to make sure the effect caused by the stall goes away
+
+inst #6: instruction i
+inst #7: one instruction to separate i and j
+inst #8: instruction j
+inst #9 - #12: dummy instructions filled in to make sure the effect caused by the stall goes away
+
+inst #13: instruction i
+inst #14 - #15: two instructions filled in to keep i and j 2-instruction-distance from each other
+inst #16 - 20: dummy instructions filled in to make sure the effect caused by the stall goes away
+
+[ the ideal output for each instruction(except for jump) should be:
+  in IDEAL: no stalls, so time unit = numInstructions + numStages - 1 = 21 + 5 - 1 = 25
+  in STALL: 
+    - when j immediately after i: 2 time unit stall
+    - when j one instruction away from i: 1 time unit stall
+    - when j two instruction away from i: no stall
+    thus: total time unit = ideal total time unit + 2 + 1 = 28
+  in FORWARDING:
+    - for non_memory inst: same as IDEAL, since even if j is immediately after i, there won't be
+      stalls since data is forwarded immediately from EXE to EXE;
+    - for memory inst: when j is immediately after i, will have one-time unit stall, since the 
+      data will be forwarded from MMR to EXE, so need to wait for one more round; but when i and j
+      are one/two instructions away, no stall is present
+    thus: for non_mmr: total time unit = ideal total time = 25
+          for mmr:     total time unit = ideal total time + 1 = 26
+
+  Note: the output for MULT should be different, as it is only writing to lo and hi but not rs, rt,
+        or rd which could be read from for other instructions, so the total time for MULT in all
+        three pipelines should be the same: 25
+]
+
+for instruction jump, the test is constructed as the following:
+inst #0: jump instruction
+inst #1 - #4: 4 other instructions
+
+[  the ideal output for jump instruction test:
+   in IDEAL: no stalls, so time unit = numInstructions + numStages - 1 = 5 + 5 - 1 = 9 
+   in STALL: one time-unit stall, since cannot fetch next instruction before decode of jump ends,
+             so total time = ideal time + 1 = 10
+   in FORWARDING: same as in STALL, so total time = 10
+]
+
+All the original test outputs are summarized as the following, and they indeed are as expected:
+
+        IDEAL  |  STALL  | FORWARDING
+ADD:     25    |   28    |  25
+ADDI:    25    |   28    |  25
+J:       9     |   10    |  10
+LB:      25    |   28    |  26
+MFLO:    25    |   28    |  25
+MULT:    25    |   25    |  25
+SLT:     25    |   28    |  25
+SLL:     25    |   28    |  25
+SLTI:    25    |   28    |  25
+XOR:     25    |   28    |  25
+
+
+and the original ouputs can be found in the rest of the file: 
 testADD.asm, testADD.mach:
 IDEAL:
 RAW Dependence between instruction 0 add $1, $9, $3 and 1 add $8, $1, $3

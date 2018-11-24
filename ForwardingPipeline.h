@@ -25,18 +25,18 @@ class ForwardingPipeline : public Pipeline {
     bool canMoveIntoStage(int st);
    
      // stage where operand value is needed in forwarding pipeline
-    const Stage MYSTAGEOPERANDNEEDED = EXECUTE; 
+    const Stage MY_STAGE_OPERAND_NEEDED = EXECUTE; 
 
     // stage where operand value is produced in forwarding pipeline for memory instructions
-    const Stage MYSTAGEOPERANDPRODUCED_MMR = MEMORY; 
+    const Stage MY_STAGE_OPERAND_PRODUCED_MMR = MEMORY; 
     
     // stage where operand value is produced in forwarding pipeline for non-memory instructions
-    const Stage MYSTAGEOPERANDPRODUCED_NONMMR = EXECUTE; 
+    const Stage MY_STAGE_OPERAND_PRODUCED_NONMMR = EXECUTE; 
 
     // in this stage, the destination of jump is produced, 
     // is important because instructions cannot be fetched until 
     // the result from this stage is produced
-    const Stage MYSTAGEJUMPDESTPRODUCED = DECODE;  
+    const Stage MY_STAGE_JUMP_DEST_PRODUCED = DECODE;  
 };
 
 #endif

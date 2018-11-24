@@ -55,7 +55,9 @@ class BinaryParser {
     const static int IMMJLEN = 26;                // length of J type immediate field
     const static int FUNCLEN = 6;                 // length of func field
     const static int ENCODELEN = 32;              // length of a valid encoding
-             
+
+    const string MULT_4 = "00";        // appends to the end of an encoding to *4
+    const string FOREMOST_4_BITS_PC = "0000"; //4 most significant bits in PC             
     // binaryLine: the line of the binary string to be checked
     // returns true if that binary representation is correct in 
     // syntax(length, composed of 0's and 1's)

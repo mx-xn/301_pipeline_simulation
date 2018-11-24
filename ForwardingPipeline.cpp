@@ -23,12 +23,12 @@ bool ForwardingPipeline::canMoveIntoStage(int st) {
   // from its previous stage, unless st is the first stage and
   // the destination result of a jump instruction
   // has not been produced yet
-  if (st != MYSTAGEOPERANDNEEDED + 1) {
+  if (st != MY_STAGE_OPERAND_NEEDED + 1) {
     if (st == 0) {
       // if in the first stage, check whether there will be any stalls
       // caused by a jump instruction
       for (int stAffectedByJump = st + 1; 
-        stAffectedByJump <= MYSTAGEJUMPDESTPRODUCED; stAffectedByJump++) {
+        stAffectedByJump <= MY_STAGE_JUMP_DEST_PRODUCED; stAffectedByJump++) {
         if (myStageEntry[stAffectedByJump] != myStageEmpty) {
           // if myStageEntry[stAffectedByJump] is not empty,
           // get that instruction
@@ -51,18 +51,18 @@ bool ForwardingPipeline::canMoveIntoStage(int st) {
   // by checking whether there are any RAW dependences between the inst in the 
   // previous stage and the inst in the stage between after the current stage and
   // and stage where operand is produced(for both memory and non_memory inst)
-  for (int influenceSt = st + 1; influenceSt <= MYSTAGEOPERANDPRODUCED_MMR + 1; influenceSt++) {
+  for (int influenceSt = st + 1; influenceSt <= MY_STAGE_OPERAND_PRODUCED_MMR + 1; influenceSt++) {
     // enters for loop: if influenceSt is between after current stage and the stage 
     // where MMR inst is produced, check whether there is an RAW between inst in 
     // influenceSt and stage where operand is needed if both stages are not empy 
-    if (myStageEntry[influenceSt] != myStageEmpty && myStageEntry[MYSTAGEOPERANDNEEDED] != myStageEmpty) {
-      if (myDepChecker.isRAW(myStageEntry[influenceSt], myStageEntry[MYSTAGEOPERANDNEEDED])) {
+    if (myStageEntry[influenceSt] != myStageEmpty && myStageEntry[MY_STAGE_OPERAND_NEEDED] != myStageEmpty) {
+      if (myDepChecker.isRAW(myStageEntry[influenceSt], myStageEntry[MY_STAGE_OPERAND_NEEDED])) {
         // if RAW dependences found, and influenceSt is before the stage after a non_MMR inst 
         // is produced, we do not need to check whether the inst in influenceSt is MMR or NON_MMR, 
         // since stage operand produced for MMR(EXECUTIONs) inst is always later than 
         // stage operand produced for NON_MMR(MEMORYs) inst, and thus there is a stall here regardless,
         // thus cannot move and return false
-        if (influenceSt <= MYSTAGEOPERANDPRODUCED_NONMMR + 1)
+        if (influenceSt <= MY_STAGE_OPERAND_PRODUCED_NONMMR + 1)
           return false;
      
         // when program reaches here, we do need to check whether inst in 
