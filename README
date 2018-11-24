@@ -1,0 +1,783 @@
+testADD.asm, testADD.mach:
+IDEAL:
+RAW Dependence between instruction 0 add $1, $9, $3 and 1 add $8, $1, $3
+RAW Dependence between instruction 6 add $1, $9, $3 and 8 add $8, $1, $3
+RAW Dependence between instruction 13 add $1, $9, $3 and 16 add $8, $1, $3
+Instr# 	 CompletionTime 	 Mnemonic
+0	5			|add $1, $9, $3
+1	6			|add $8, $1, $3
+2	7			|addi $4, $5, -10
+3	8			|xor $5, $3, $2
+4	9			|add $5, $2, $3
+5	10			|add $6, $2, $3
+6	11			|add $1, $9, $3
+7	12			|xor $5, $3, $2
+8	13			|add $8, $1, $3
+9	14			|addi $4, $2, -10
+10	15			|xor $5, $3, $2
+11	16			|add $5, $2, $3
+12	17			|add $6, $2, $3
+13	18			|add $1, $9, $3
+14	19			|xor $5, $3, $2
+15	20			|add $5, $2, $3
+16	21			|add $8, $1, $3
+17	22			|addi $4, $2, -10
+18	23			|xor $5, $3, $2
+19	24			|add $5, $2, $3
+20	25			|add $6, $2, $3
+Total time is 25
+
+STALL:
+RAW Dependence between instruction 0 add $1, $9, $3 and 1 add $8, $1, $3
+RAW Dependence between instruction 6 add $1, $9, $3 and 8 add $8, $1, $3
+RAW Dependence between instruction 13 add $1, $9, $3 and 16 add $8, $1, $3
+Instr# 	 CompletionTime 	 Mnemonic
+0	5			|add $1, $9, $3
+1	8			|add $8, $1, $3
+2	9			|addi $4, $5, -10
+3	10			|xor $5, $3, $2
+4	11			|add $5, $2, $3
+5	12			|add $6, $2, $3
+6	13			|add $1, $9, $3
+7	14			|xor $5, $3, $2
+8	16			|add $8, $1, $3
+9	17			|addi $4, $2, -10
+10	18			|xor $5, $3, $2
+11	19			|add $5, $2, $3
+12	20			|add $6, $2, $3
+13	21			|add $1, $9, $3
+14	22			|xor $5, $3, $2
+15	23			|add $5, $2, $3
+16	24			|add $8, $1, $3
+17	25			|addi $4, $2, -10
+18	26			|xor $5, $3, $2
+19	27			|add $5, $2, $3
+20	28			|add $6, $2, $3
+Total time is 28
+
+FORWARDING:
+RAW Dependence between instruction 0 add $1, $9, $3 and 1 add $8, $1, $3
+RAW Dependence between instruction 6 add $1, $9, $3 and 8 add $8, $1, $3
+RAW Dependence between instruction 13 add $1, $9, $3 and 16 add $8, $1, $3
+Instr# 	 CompletionTime 	 Mnemonic
+0	5			|add $1, $9, $3
+1	6			|add $8, $1, $3
+2	7			|addi $4, $5, -10
+3	8			|xor $5, $3, $2
+4	9			|add $5, $2, $3
+5	10			|add $6, $2, $3
+6	11			|add $1, $9, $3
+7	12			|xor $5, $3, $2
+8	13			|add $8, $1, $3
+9	14			|addi $4, $2, -10
+10	15			|xor $5, $3, $2
+11	16			|add $5, $2, $3
+12	17			|add $6, $2, $3
+13	18			|add $1, $9, $3
+14	19			|xor $5, $3, $2
+15	20			|add $5, $2, $3
+16	21			|add $8, $1, $3
+17	22			|addi $4, $2, -10
+18	23			|xor $5, $3, $2
+19	24			|add $5, $2, $3
+20	25			|add $6, $2, $3
+Total time is 25
+
+testADDI.asm, testADDI.mach:
+IDEAL:
+RAW Dependence between instruction 0 addi $1, $9, 3 and 1 addi $8, $1, 3
+RAW Dependence between instruction 6 addi $1, $9, 3 and 8 addi $8, $1, 3
+RAW Dependence between instruction 13 addi $1, $9, 3 and 16 addi $8, $1, 3
+Instr# 	 CompletionTime 	 Mnemonic
+0	5			|addi $1, $9, 3
+1	6			|addi $8, $1, 3
+2	7			|addi $4, $5, -10
+3	8			|xor $5, $3, $2
+4	9			|add $5, $2, $3
+5	10			|add $6, $2, $3
+6	11			|addi $1, $9, 3
+7	12			|xor $5, $3, $2
+8	13			|addi $8, $1, 3
+9	14			|addi $4, $2, -10
+10	15			|xor $5, $3, $2
+11	16			|add $5, $2, $3
+12	17			|add $6, $2, $3
+13	18			|addi $1, $9, 3
+14	19			|xor $5, $3, $2
+15	20			|add $5, $2, $3
+16	21			|addi $8, $1, 3
+17	22			|addi $4, $2, -10
+18	23			|xor $5, $3, $2
+19	24			|add $5, $2, $3
+20	25			|add $6, $2, $3
+Total time is 25
+
+STALL:
+RAW Dependence between instruction 0 addi $1, $9, 3 and 1 addi $8, $1, 3
+RAW Dependence between instruction 6 addi $1, $9, 3 and 8 addi $8, $1, 3
+RAW Dependence between instruction 13 addi $1, $9, 3 and 16 addi $8, $1, 3
+Instr# 	 CompletionTime 	 Mnemonic
+0	5			|addi $1, $9, 3
+1	8			|addi $8, $1, 3
+2	9			|addi $4, $5, -10
+3	10			|xor $5, $3, $2
+4	11			|add $5, $2, $3
+5	12			|add $6, $2, $3
+6	13			|addi $1, $9, 3
+7	14			|xor $5, $3, $2
+8	16			|addi $8, $1, 3
+9	17			|addi $4, $2, -10
+10	18			|xor $5, $3, $2
+11	19			|add $5, $2, $3
+12	20			|add $6, $2, $3
+13	21			|addi $1, $9, 3
+14	22			|xor $5, $3, $2
+15	23			|add $5, $2, $3
+16	24			|addi $8, $1, 3
+17	25			|addi $4, $2, -10
+18	26			|xor $5, $3, $2
+19	27			|add $5, $2, $3
+20	28			|add $6, $2, $3
+Total time is 28
+
+FORWARDING:
+RAW Dependence between instruction 0 addi $1, $9, 3 and 1 addi $8, $1, 3
+RAW Dependence between instruction 6 addi $1, $9, 3 and 8 addi $8, $1, 3
+RAW Dependence between instruction 13 addi $1, $9, 3 and 16 addi $8, $1, 3
+Instr# 	 CompletionTime 	 Mnemonic
+0	5			|addi $1, $9, 3
+1	6			|addi $8, $1, 3
+2	7			|addi $4, $5, -10
+3	8			|xor $5, $3, $2
+4	9			|add $5, $2, $3
+5	10			|add $6, $2, $3
+6	11			|addi $1, $9, 3
+7	12			|xor $5, $3, $2
+8	13			|addi $8, $1, 3
+9	14			|addi $4, $2, -10
+10	15			|xor $5, $3, $2
+11	16			|add $5, $2, $3
+12	17			|add $6, $2, $3
+13	18			|addi $1, $9, 3
+14	19			|xor $5, $3, $2
+15	20			|add $5, $2, $3
+16	21			|addi $8, $1, 3
+17	22			|addi $4, $2, -10
+18	23			|xor $5, $3, $2
+19	24			|add $5, $2, $3
+20	25			|add $6, $2, $3
+Total time is 25
+
+testJ.asm, testJ.mach:
+IDEAL:
+Instr# 	 CompletionTime 	 Mnemonic
+0	5			|j label                              --[0x40000 here for testJ.mach]
+1	6			|addi $8, $1, 3
+2	7			|addi $4, $5, -10
+3	8			|xor $5, $3, $2
+4	9			|add $5, $2, $3
+Total time is 9
+
+STALL:
+Instr# 	 CompletionTime 	 Mnemonic
+0	5			|j label                              --[0x40000 here for testJ.mach]
+1	7			|addi $8, $1, 3
+2	8			|addi $4, $5, -10
+3	9			|xor $5, $3, $2
+4	10			|add $5, $2, $3
+Total time is 10
+
+FORWARDING:
+Instr# 	 CompletionTime 	 Mnemonic
+0	5			|j label                              --[0x40000 here for testJ.mach]
+1	7			|addi $8, $1, 3
+2	8			|addi $4, $5, -10
+3	9			|xor $5, $3, $2
+4	10			|add $5, $2, $3
+Total time is 10
+
+testLB.asm, testLB.mach:
+IDEAL:
+RAW Dependence between instruction 0 lb $1, -3($9) and 1 lb $8, 3($1)
+RAW Dependence between instruction 6 lb $1, -3($9) and 8 lb $8, 3($1)
+RAW Dependence between instruction 13 lb $1, -3($9) and 16 lb $8, 3($1)
+Instr# 	 CompletionTime 	 Mnemonic
+0	5			|lb $1, -3($9)
+1	6			|lb $8, 3($1)
+2	7			|addi $4, $5, -10
+3	8			|xor $5, $3, $2
+4	9			|add $5, $2, $3
+5	10			|add $6, $2, $3
+6	11			|lb $1, -3($9)
+7	12			|xor $5, $3, $2
+8	13			|lb $8, 3($1)
+9	14			|addi $4, $2, -10
+10	15			|xor $5, $3, $2
+11	16			|add $5, $2, $3
+12	17			|add $6, $2, $3
+13	18			|lb $1, -3($9)
+14	19			|xor $5, $3, $2
+15	20			|add $5, $2, $3
+16	21			|lb $8, 3($1)
+17	22			|addi $4, $2, -10
+18	23			|xor $5, $3, $2
+19	24			|add $5, $2, $3
+20	25			|add $6, $2, $3
+Total time is 25
+
+STALL:
+RAW Dependence between instruction 0 lb $1, -3($9) and 1 lb $8, 3($1)
+RAW Dependence between instruction 6 lb $1, -3($9) and 8 lb $8, 3($1)
+RAW Dependence between instruction 13 lb $1, -3($9) and 16 lb $8, 3($1)
+Instr# 	 CompletionTime 	 Mnemonic
+0	5			|lb $1, -3($9)
+1	8			|lb $8, 3($1)
+2	9			|addi $4, $5, -10
+3	10			|xor $5, $3, $2
+4	11			|add $5, $2, $3
+5	12			|add $6, $2, $3
+6	13			|lb $1, -3($9)
+7	14			|xor $5, $3, $2
+8	16			|lb $8, 3($1)
+9	17			|addi $4, $2, -10
+10	18			|xor $5, $3, $2
+11	19			|add $5, $2, $3
+12	20			|add $6, $2, $3
+13	21			|lb $1, -3($9)
+14	22			|xor $5, $3, $2
+15	23			|add $5, $2, $3
+16	24			|lb $8, 3($1)
+17	25			|addi $4, $2, -10
+18	26			|xor $5, $3, $2
+19	27			|add $5, $2, $3
+20	28			|add $6, $2, $3
+Total time is 28
+
+FORWARDING:
+RAW Dependence between instruction 0 lb $1, -3($9) and 1 lb $8, 3($1)
+RAW Dependence between instruction 6 lb $1, -3($9) and 8 lb $8, 3($1)
+RAW Dependence between instruction 13 lb $1, -3($9) and 16 lb $8, 3($1)
+Instr# 	 CompletionTime 	 Mnemonic
+0	5			|lb $1, -3($9)
+1	7			|lb $8, 3($1)
+2	8			|addi $4, $5, -10
+3	9			|xor $5, $3, $2
+4	10			|add $5, $2, $3
+5	11			|add $6, $2, $3
+6	12			|lb $1, -3($9)
+7	13			|xor $5, $3, $2
+8	14			|lb $8, 3($1)
+9	15			|addi $4, $2, -10
+10	16			|xor $5, $3, $2
+11	17			|add $5, $2, $3
+12	18			|add $6, $2, $3
+13	19			|lb $1, -3($9)
+14	20			|xor $5, $3, $2
+15	21			|add $5, $2, $3
+16	22			|lb $8, 3($1)
+17	23			|addi $4, $2, -10
+18	24			|xor $5, $3, $2
+19	25			|add $5, $2, $3
+20	26			|add $6, $2, $3
+Total time is 26
+
+testMFLO.asm, testMFLO.mach:
+IDEAL:
+RAW Dependence between instruction 0 mflo $1 and 1 addi $8, $1, 3
+RAW Dependence between instruction 6 mflo $1 and 8 addi $8, $1, 3
+RAW Dependence between instruction 13 mflo $1 and 16 addi $8, $1, 3
+Instr# 	 CompletionTime 	 Mnemonic
+0	5			|mflo $1
+1	6			|addi $8, $1, 3
+2	7			|addi $4, $5, -10
+3	8			|xor $5, $3, $2
+4	9			|add $5, $2, $3
+5	10			|add $6, $2, $3
+6	11			|mflo $1
+7	12			|xor $5, $3, $2
+8	13			|addi $8, $1, 3
+9	14			|addi $4, $2, -10
+10	15			|xor $5, $3, $2
+11	16			|add $5, $2, $3
+12	17			|add $6, $2, $3
+13	18			|mflo $1
+14	19			|xor $5, $3, $2
+15	20			|add $5, $2, $3
+16	21			|addi $8, $1, 3
+17	22			|addi $4, $2, -10
+18	23			|xor $5, $3, $2
+19	24			|add $5, $2, $3
+20	25			|add $6, $2, $3
+Total time is 25
+
+STALL:
+RAW Dependence between instruction 0 mflo $1 and 1 addi $8, $1, 3
+RAW Dependence between instruction 6 mflo $1 and 8 addi $8, $1, 3
+RAW Dependence between instruction 13 mflo $1 and 16 addi $8, $1, 3
+Instr# 	 CompletionTime 	 Mnemonic
+0	5			|mflo $1
+1	8			|addi $8, $1, 3
+2	9			|addi $4, $5, -10
+3	10			|xor $5, $3, $2
+4	11			|add $5, $2, $3
+5	12			|add $6, $2, $3
+6	13			|mflo $1
+7	14			|xor $5, $3, $2
+8	16			|addi $8, $1, 3
+9	17			|addi $4, $2, -10
+10	18			|xor $5, $3, $2
+11	19			|add $5, $2, $3
+12	20			|add $6, $2, $3
+13	21			|mflo $1
+14	22			|xor $5, $3, $2
+15	23			|add $5, $2, $3
+16	24			|addi $8, $1, 3
+17	25			|addi $4, $2, -10
+18	26			|xor $5, $3, $2
+19	27			|add $5, $2, $3
+20	28			|add $6, $2, $3
+Total time is 28
+
+FORWARDING:
+RAW Dependence between instruction 0 mflo $1 and 1 addi $8, $1, 3
+RAW Dependence between instruction 6 mflo $1 and 8 addi $8, $1, 3
+RAW Dependence between instruction 13 mflo $1 and 16 addi $8, $1, 3
+Instr# 	 CompletionTime 	 Mnemonic
+0	5			|mflo $1
+1	6			|addi $8, $1, 3
+2	7			|addi $4, $5, -10
+3	8			|xor $5, $3, $2
+4	9			|add $5, $2, $3
+5	10			|add $6, $2, $3
+6	11			|mflo $1
+7	12			|xor $5, $3, $2
+8	13			|addi $8, $1, 3
+9	14			|addi $4, $2, -10
+10	15			|xor $5, $3, $2
+11	16			|add $5, $2, $3
+12	17			|add $6, $2, $3
+13	18			|mflo $1
+14	19			|xor $5, $3, $2
+15	20			|add $5, $2, $3
+16	21			|addi $8, $1, 3
+17	22			|addi $4, $2, -10
+18	23			|xor $5, $3, $2
+19	24			|add $5, $2, $3
+20	25			|add $6, $2, $3
+Total time is 25
+
+testMULT.asm, testMULT.mach:
+IDEAL:
+Instr# 	 CompletionTime 	 Mnemonic
+0	5			|mult $1, $9
+1	6			|mult $8, $1
+2	7			|addi $4, $5, -10
+3	8			|xor $5, $3, $2
+4	9			|add $5, $2, $3
+5	10			|add $6, $2, $3
+6	11			|mult $1, $9
+7	12			|xor $5, $3, $2
+8	13			|mult $8, $1
+9	14			|addi $4, $2, -10
+10	15			|xor $5, $3, $2
+11	16			|add $5, $2, $3
+12	17			|add $6, $2, $3
+13	18			|mult $1, $9
+14	19			|xor $5, $3, $2
+15	20			|add $5, $2, $3
+16	21			|mult $8, $1
+17	22			|addi $4, $2, -10
+18	23			|xor $5, $3, $2
+19	24			|add $5, $2, $3
+20	25			|add $6, $2, $3
+Total time is 25
+
+STALL:
+Instr# 	 CompletionTime 	 Mnemonic
+0	5			|mult $1, $9
+1	6			|mult $8, $1
+2	7			|addi $4, $5, -10
+3	8			|xor $5, $3, $2
+4	9			|add $5, $2, $3
+5	10			|add $6, $2, $3
+6	11			|mult $1, $9
+7	12			|xor $5, $3, $2
+8	13			|mult $8, $1
+9	14			|addi $4, $2, -10
+10	15			|xor $5, $3, $2
+11	16			|add $5, $2, $3
+12	17			|add $6, $2, $3
+13	18			|mult $1, $9
+14	19			|xor $5, $3, $2
+15	20			|add $5, $2, $3
+16	21			|mult $8, $1
+17	22			|addi $4, $2, -10
+18	23			|xor $5, $3, $2
+19	24			|add $5, $2, $3
+20	25			|add $6, $2, $3
+Total time is 25
+
+FORWARDING:
+Instr# 	 CompletionTime 	 Mnemonic
+0	5			|mult $1, $9
+1	6			|mult $8, $1
+2	7			|addi $4, $5, -10
+3	8			|xor $5, $3, $2
+4	9			|add $5, $2, $3
+5	10			|add $6, $2, $3
+6	11			|mult $1, $9
+7	12			|xor $5, $3, $2
+8	13			|mult $8, $1
+9	14			|addi $4, $2, -10
+10	15			|xor $5, $3, $2
+11	16			|add $5, $2, $3
+12	17			|add $6, $2, $3
+13	18			|mult $1, $9
+14	19			|xor $5, $3, $2
+15	20			|add $5, $2, $3
+16	21			|mult $8, $1
+17	22			|addi $4, $2, -10
+18	23			|xor $5, $3, $2
+19	24			|add $5, $2, $3
+20	25			|add $6, $2, $3
+Total time is 25
+
+testSLT.asm, testSLT.mach:
+IDEAL:
+RAW Dependence between instruction 0 slt $1, $9, $3 and 1 slt $8, $1, $3
+RAW Dependence between instruction 6 slt $1, $9, $3 and 8 slt $8, $1, $3
+RAW Dependence between instruction 13 slt $1, $9, $3 and 16 slt $8, $1, $3
+Instr# 	 CompletionTime 	 Mnemonic
+0	5			|slt $1, $9, $3
+1	6			|slt $8, $1, $3
+2	7			|addi $4, $5, -10
+3	8			|xor $5, $3, $2
+4	9			|add $5, $2, $3
+5	10			|add $6, $2, $3
+6	11			|slt $1, $9, $3
+7	12			|xor $5, $3, $2
+8	13			|slt $8, $1, $3
+9	14			|addi $4, $2, -10
+10	15			|xor $5, $3, $2
+11	16			|add $5, $2, $3
+12	17			|add $6, $2, $3
+13	18			|slt $1, $9, $3
+14	19			|xor $5, $3, $2
+15	20			|add $5, $2, $3
+16	21			|slt $8, $1, $3
+17	22			|addi $4, $2, -10
+18	23			|xor $5, $3, $2
+19	24			|add $5, $2, $3
+20	25			|add $6, $2, $3
+Total time is 25
+
+STALL:
+RAW Dependence between instruction 0 slt $1, $9, $3 and 1 slt $8, $1, $3
+RAW Dependence between instruction 6 slt $1, $9, $3 and 8 slt $8, $1, $3
+RAW Dependence between instruction 13 slt $1, $9, $3 and 16 slt $8, $1, $3
+Instr# 	 CompletionTime 	 Mnemonic
+0	5			|slt $1, $9, $3
+1	8			|slt $8, $1, $3
+2	9			|addi $4, $5, -10
+3	10			|xor $5, $3, $2
+4	11			|add $5, $2, $3
+5	12			|add $6, $2, $3
+6	13			|slt $1, $9, $3
+7	14			|xor $5, $3, $2
+8	16			|slt $8, $1, $3
+9	17			|addi $4, $2, -10
+10	18			|xor $5, $3, $2
+11	19			|add $5, $2, $3
+12	20			|add $6, $2, $3
+13	21			|slt $1, $9, $3
+14	22			|xor $5, $3, $2
+15	23			|add $5, $2, $3
+16	24			|slt $8, $1, $3
+17	25			|addi $4, $2, -10
+18	26			|xor $5, $3, $2
+19	27			|add $5, $2, $3
+20	28			|add $6, $2, $3
+Total time is 28
+
+FORWARDING:
+RAW Dependence between instruction 0 slt $1, $9, $3 and 1 slt $8, $1, $3
+RAW Dependence between instruction 6 slt $1, $9, $3 and 8 slt $8, $1, $3
+RAW Dependence between instruction 13 slt $1, $9, $3 and 16 slt $8, $1, $3
+Instr# 	 CompletionTime 	 Mnemonic
+0	5			|slt $1, $9, $3
+1	6			|slt $8, $1, $3
+2	7			|addi $4, $5, -10
+3	8			|xor $5, $3, $2
+4	9			|add $5, $2, $3
+5	10			|add $6, $2, $3
+6	11			|slt $1, $9, $3
+7	12			|xor $5, $3, $2
+8	13			|slt $8, $1, $3
+9	14			|addi $4, $2, -10
+10	15			|xor $5, $3, $2
+11	16			|add $5, $2, $3
+12	17			|add $6, $2, $3
+13	18			|slt $1, $9, $3
+14	19			|xor $5, $3, $2
+15	20			|add $5, $2, $3
+16	21			|slt $8, $1, $3
+17	22			|addi $4, $2, -10
+18	23			|xor $5, $3, $2
+19	24			|add $5, $2, $3
+20	25			|add $6, $2, $3
+Total time is 25
+
+testSLL.asm, testSLL.mach:
+IDEAL:
+RAW Dependence between instruction 0 sll $1, $9, 5 and 1 sll $8, $1, 3
+RAW Dependence between instruction 6 sll $1, $9, 5 and 8 sll $8, $1, 3
+RAW Dependence between instruction 13 sll $1, $9, 5 and 16 sll $8, $1, 3
+Instr# 	 CompletionTime 	 Mnemonic
+0	5			|sll $1, $9, 5
+1	6			|sll $8, $1, 3
+2	7			|addi $4, $5, -10
+3	8			|xor $5, $3, $2
+4	9			|add $5, $2, $3
+5	10			|add $6, $2, $3
+6	11			|sll $1, $9, 5
+7	12			|xor $5, $3, $2
+8	13			|sll $8, $1, 3
+9	14			|addi $4, $2, -10
+10	15			|xor $5, $3, $2
+11	16			|add $5, $2, $3
+12	17			|add $6, $2, $3
+13	18			|sll $1, $9, 5
+14	19			|xor $5, $3, $2
+15	20			|add $5, $2, $3
+16	21			|sll $8, $1, 3
+17	22			|addi $4, $2, -10
+18	23			|xor $5, $3, $2
+19	24			|add $5, $2, $3
+20	25			|add $6, $2, $3
+Total time is 25
+
+STALL:
+RAW Dependence between instruction 0 sll $1, $9, 5 and 1 sll $8, $1, 3
+RAW Dependence between instruction 6 sll $1, $9, 5 and 8 sll $8, $1, 3
+RAW Dependence between instruction 13 sll $1, $9, 5 and 16 sll $8, $1, 3
+Instr# 	 CompletionTime 	 Mnemonic
+0	5			|sll $1, $9, 5
+1	8			|sll $8, $1, 3
+2	9			|addi $4, $5, -10
+3	10			|xor $5, $3, $2
+4	11			|add $5, $2, $3
+5	12			|add $6, $2, $3
+6	13			|sll $1, $9, 5
+7	14			|xor $5, $3, $2
+8	16			|sll $8, $1, 3
+9	17			|addi $4, $2, -10
+10	18			|xor $5, $3, $2
+11	19			|add $5, $2, $3
+12	20			|add $6, $2, $3
+13	21			|sll $1, $9, 5
+14	22			|xor $5, $3, $2
+15	23			|add $5, $2, $3
+16	24			|sll $8, $1, 3
+17	25			|addi $4, $2, -10
+18	26			|xor $5, $3, $2
+19	27			|add $5, $2, $3
+20	28			|add $6, $2, $3
+Total time is 28
+
+FORWARDING:
+RAW Dependence between instruction 0 sll $1, $9, 5 and 1 sll $8, $1, 3
+RAW Dependence between instruction 6 sll $1, $9, 5 and 8 sll $8, $1, 3
+RAW Dependence between instruction 13 sll $1, $9, 5 and 16 sll $8, $1, 3
+Instr# 	 CompletionTime 	 Mnemonic
+0	5			|sll $1, $9, 5
+1	6			|sll $8, $1, 3
+2	7			|addi $4, $5, -10
+3	8			|xor $5, $3, $2
+4	9			|add $5, $2, $3
+5	10			|add $6, $2, $3
+6	11			|sll $1, $9, 5
+7	12			|xor $5, $3, $2
+8	13			|sll $8, $1, 3
+9	14			|addi $4, $2, -10
+10	15			|xor $5, $3, $2
+11	16			|add $5, $2, $3
+12	17			|add $6, $2, $3
+13	18			|sll $1, $9, 5
+14	19			|xor $5, $3, $2
+15	20			|add $5, $2, $3
+16	21			|sll $8, $1, 3
+17	22			|addi $4, $2, -10
+18	23			|xor $5, $3, $2
+19	24			|add $5, $2, $3
+20	25			|add $6, $2, $3
+Total time is 25
+
+testSLTI.asm, testSLTI.mach:
+IDEAL:
+RAW Dependence between instruction 0 slti $1, $9, -3 and 1 slti $8, $1, 3
+RAW Dependence between instruction 6 slti $1, $9, -3 and 8 slti $8, $1, 3
+RAW Dependence between instruction 13 slti $1, $9, -3 and 16 slti $8, $1, 3
+Instr# 	 CompletionTime 	 Mnemonic
+0	5			|slti $1, $9, -3
+1	6			|slti $8, $1, 3
+2	7			|addi $4, $5, -10
+3	8			|xor $5, $3, $2
+4	9			|add $5, $2, $3
+5	10			|add $6, $2, $3
+6	11			|slti $1, $9, -3
+7	12			|xor $5, $3, $2
+8	13			|slti $8, $1, 3
+9	14			|addi $4, $2, -10
+10	15			|xor $5, $3, $2
+11	16			|add $5, $2, $3
+12	17			|add $6, $2, $3
+13	18			|slti $1, $9, -3
+14	19			|xor $5, $3, $2
+15	20			|add $5, $2, $3
+16	21			|slti $8, $1, 3
+17	22			|addi $4, $2, -10
+18	23			|xor $5, $3, $2
+19	24			|add $5, $2, $3
+20	25			|add $6, $2, $3
+Total time is 25
+
+STALL:
+RAW Dependence between instruction 0 slti $1, $9, -3 and 1 slti $8, $1, 3
+RAW Dependence between instruction 6 slti $1, $9, -3 and 8 slti $8, $1, 3
+RAW Dependence between instruction 13 slti $1, $9, -3 and 16 slti $8, $1, 3
+Instr# 	 CompletionTime 	 Mnemonic
+0	5			|slti $1, $9, -3
+1	8			|slti $8, $1, 3
+2	9			|addi $4, $5, -10
+3	10			|xor $5, $3, $2
+4	11			|add $5, $2, $3
+5	12			|add $6, $2, $3
+6	13			|slti $1, $9, -3
+7	14			|xor $5, $3, $2
+8	16			|slti $8, $1, 3
+9	17			|addi $4, $2, -10
+10	18			|xor $5, $3, $2
+11	19			|add $5, $2, $3
+12	20			|add $6, $2, $3
+13	21			|slti $1, $9, -3
+14	22			|xor $5, $3, $2
+15	23			|add $5, $2, $3
+16	24			|slti $8, $1, 3
+17	25			|addi $4, $2, -10
+18	26			|xor $5, $3, $2
+19	27			|add $5, $2, $3
+20	28			|add $6, $2, $3
+Total time is 28
+
+FORWARDING:
+RAW Dependence between instruction 0 slti $1, $9, -3 and 1 slti $8, $1, 3
+RAW Dependence between instruction 6 slti $1, $9, -3 and 8 slti $8, $1, 3
+RAW Dependence between instruction 13 slti $1, $9, -3 and 16 slti $8, $1, 3
+Instr# 	 CompletionTime 	 Mnemonic
+0	5			|slti $1, $9, -3
+1	6			|slti $8, $1, 3
+2	7			|addi $4, $5, -10
+3	8			|xor $5, $3, $2
+4	9			|add $5, $2, $3
+5	10			|add $6, $2, $3
+6	11			|slti $1, $9, -3
+7	12			|xor $5, $3, $2
+8	13			|slti $8, $1, 3
+9	14			|addi $4, $2, -10
+10	15			|xor $5, $3, $2
+11	16			|add $5, $2, $3
+12	17			|add $6, $2, $3
+13	18			|slti $1, $9, -3
+14	19			|xor $5, $3, $2
+15	20			|add $5, $2, $3
+16	21			|slti $8, $1, 3
+17	22			|addi $4, $2, -10
+18	23			|xor $5, $3, $2
+19	24			|add $5, $2, $3
+20	25			|add $6, $2, $3
+Total time is 25
+
+testXOR.asm, testXOR.mach:
+IDEAL:
+RAW Dependence between instruction 0 xor $1, $9, $3 and 1 xor $8, $1, $3
+RAW Dependence between instruction 6 xor $1, $9, $3 and 8 xor $8, $1, $3
+RAW Dependence between instruction 13 xor $1, $9, $3 and 16 xor $8, $1, $3
+Instr# 	 CompletionTime 	 Mnemonic
+0	5			|xor $1, $9, $3
+1	6			|xor $8, $1, $3
+2	7			|addi $4, $5, -10
+3	8			|xor $5, $3, $2
+4	9			|add $5, $2, $3
+5	10			|add $6, $2, $3
+6	11			|xor $1, $9, $3
+7	12			|xor $5, $3, $2
+8	13			|xor $8, $1, $3
+9	14			|addi $4, $2, -10
+10	15			|xor $5, $3, $2
+11	16			|add $5, $2, $3
+12	17			|add $6, $2, $3
+13	18			|xor $1, $9, $3
+14	19			|xor $5, $3, $2
+15	20			|add $5, $2, $3
+16	21			|xor $8, $1, $3
+17	22			|addi $4, $2, -10
+18	23			|xor $5, $3, $2
+19	24			|add $5, $2, $3
+20	25			|add $6, $2, $3
+Total time is 25
+
+STALL:
+RAW Dependence between instruction 0 xor $1, $9, $3 and 1 xor $8, $1, $3
+RAW Dependence between instruction 6 xor $1, $9, $3 and 8 xor $8, $1, $3
+RAW Dependence between instruction 13 xor $1, $9, $3 and 16 xor $8, $1, $3
+Instr# 	 CompletionTime 	 Mnemonic
+0	5			|xor $1, $9, $3
+1	8			|xor $8, $1, $3
+2	9			|addi $4, $5, -10
+3	10			|xor $5, $3, $2
+4	11			|add $5, $2, $3
+5	12			|add $6, $2, $3
+6	13			|xor $1, $9, $3
+7	14			|xor $5, $3, $2
+8	16			|xor $8, $1, $3
+9	17			|addi $4, $2, -10
+10	18			|xor $5, $3, $2
+11	19			|add $5, $2, $3
+12	20			|add $6, $2, $3
+13	21			|xor $1, $9, $3
+14	22			|xor $5, $3, $2
+15	23			|add $5, $2, $3
+16	24			|xor $8, $1, $3
+17	25			|addi $4, $2, -10
+18	26			|xor $5, $3, $2
+19	27			|add $5, $2, $3
+20	28			|add $6, $2, $3
+Total time is 28
+
+FORWARDING:
+RAW Dependence between instruction 0 xor $1, $9, $3 and 1 xor $8, $1, $3
+RAW Dependence between instruction 6 xor $1, $9, $3 and 8 xor $8, $1, $3
+RAW Dependence between instruction 13 xor $1, $9, $3 and 16 xor $8, $1, $3
+Instr# 	 CompletionTime 	 Mnemonic
+0	5			|xor $1, $9, $3
+1	6			|xor $8, $1, $3
+2	7			|addi $4, $5, -10
+3	8			|xor $5, $3, $2
+4	9			|add $5, $2, $3
+5	10			|add $6, $2, $3
+6	11			|xor $1, $9, $3
+7	12			|xor $5, $3, $2
+8	13			|xor $8, $1, $3
+9	14			|addi $4, $2, -10
+10	15			|xor $5, $3, $2
+11	16			|add $5, $2, $3
+12	17			|add $6, $2, $3
+13	18			|xor $1, $9, $3
+14	19			|xor $5, $3, $2
+15	20			|add $5, $2, $3
+16	21			|xor $8, $1, $3
+17	22			|addi $4, $2, -10
+18	23			|xor $5, $3, $2
+19	24			|add $5, $2, $3
+20	25			|add $6, $2, $3
+Total time is 25
